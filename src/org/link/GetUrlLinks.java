@@ -14,11 +14,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class GetUrlLinks {
 	public static void main(String[] args) {
-		System.setProperty("webdriver.chrome.driver",
-				"H:\\Selenium\\Greens\\Workspace\\Project\\UrlLink\\Driver\\chromedriver.exe");
+//		System.setProperty("webdriver.chrome.driver", "H:\\Selenium\\Greens\\Workspace\\Project\\UrlLink\\Driver\\chromedriver.exe");
+	
+//		New updates in chromedriver
+		
+		ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("remote-allow-origins=*");
+		
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.amazon.in/");
 
@@ -51,6 +57,7 @@ public class GetUrlLinks {
 				htp.connect();
 
 				// To get response code from Url connection
+				
 
 				int responseCode = htp.getResponseCode();
 
